@@ -1,0 +1,12 @@
+C:\1.Programacao\3.CSharp\1.InstaAPI\InstaAPI\InstaAPI\bin\Release\net5.0\InstaAPI.deps.json
+C:\1.Programacao\3.CSharp\1.InstaAPI\InstaAPI\InstaAPI\bin\Release\net5.0\InstaAPI.dll
+C:\1.Programacao\3.CSharp\1.InstaAPI\InstaAPI\InstaAPI\bin\Release\net5.0\ref\InstaAPI.dll
+C:\1.Programacao\3.CSharp\1.InstaAPI\InstaAPI\InstaAPI\bin\Release\net5.0\InstaAPI.pdb
+C:\1.Programacao\3.CSharp\1.InstaAPI\InstaAPI\InstaAPI\obj\Release\net5.0\InstaAPI.csproj.AssemblyReference.cache
+C:\1.Programacao\3.CSharp\1.InstaAPI\InstaAPI\InstaAPI\obj\Release\net5.0\InstaAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\1.Programacao\3.CSharp\1.InstaAPI\InstaAPI\InstaAPI\obj\Release\net5.0\InstaAPI.AssemblyInfoInputs.cache
+C:\1.Programacao\3.CSharp\1.InstaAPI\InstaAPI\InstaAPI\obj\Release\net5.0\InstaAPI.AssemblyInfo.cs
+C:\1.Programacao\3.CSharp\1.InstaAPI\InstaAPI\InstaAPI\obj\Release\net5.0\InstaAPI.csproj.CoreCompileInputs.cache
+C:\1.Programacao\3.CSharp\1.InstaAPI\InstaAPI\InstaAPI\obj\Release\net5.0\InstaAPI.dll
+C:\1.Programacao\3.CSharp\1.InstaAPI\InstaAPI\InstaAPI\obj\Release\net5.0\ref\InstaAPI.dll
+C:\1.Programacao\3.CSharp\1.InstaAPI\InstaAPI\InstaAPI\obj\Release\net5.0\InstaAPI.pdb

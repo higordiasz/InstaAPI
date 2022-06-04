@@ -2,13 +2,14 @@
 using System.Net;
 using System.Net.Http;
 using InstaAPI.Cookies;
+using InstaAPI.Header;
 using InstaAPI.Helpers.Date;
 using InstaAPI.Helpers.UA;
 using InstaAPI.Helpers.User;
 
 namespace InstaAPI
 {
-    public class InstaAPI
+    public class Instagram
     {
         //Private Variables
         private CookieHelper _cookie = new();
@@ -30,7 +31,7 @@ namespace InstaAPI
 
         //Constructors
 
-        public InstaAPI (string username, string password)
+        public Instagram (string username, string password)
         {
             User = new(username.ToLower(), GetEncryptedPassword(password));
             Challenge_URL = "challenge/";
@@ -47,6 +48,7 @@ namespace InstaAPI
                 BaseAddress = new Uri("https://instagram.com/"),
                 Timeout = TimeSpan.FromSeconds(180)
             };
+            _ua = UAHelper.GetUa();
             Client.DefaultRequestHeaders.Add("Accept-Language", "en-US");
             Client.DefaultRequestHeaders.Add("X-Instagram-AJAX", "1");
             Client.DefaultRequestHeaders.Add("User-Agent", _ua.Ua);
@@ -56,16 +58,120 @@ namespace InstaAPI
             this.Client.DefaultRequestHeaders.Add("X-CSRFToken", Cookie.GetCSRFTOKEN());
         }
 
-        public InstaAPI(string username, string password, string url, string usernameProxy, string passwordProxy)
-        { }
+        public Instagram(string username, string password, string url, string usernameProxy, string passwordProxy)
+        {
+            User = new(username.ToLower(), GetEncryptedPassword(password));
+            Challenge_URL = "challenge/";
+            _cookie = new();
+            _proxy = new()
+            {
+                Address = new Uri(url),
+                BypassProxyOnLocal = false,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(
+                    userName: usernameProxy,
+                    password: passwordProxy
+                    )
+            };
+            _handler = new()
+            {
+                CookieContainer = _cookie.Cookies,
+                UseCookies = true,
+                UseDefaultCredentials = false,
+                Proxy = _proxy
+            };
+            _handler.UseProxy = true;
+            _handler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            _client = new(handler: _handler, disposeHandler: true)
+            {
+                BaseAddress = new Uri("https://instagram.com/"),
+                Timeout = TimeSpan.FromSeconds(180)
+            };
+            _ua = UAHelper.GetUa();
+            Client.DefaultRequestHeaders.Add("Accept-Language", "en-US");
+            Client.DefaultRequestHeaders.Add("X-Instagram-AJAX", "1");
+            Client.DefaultRequestHeaders.Add("User-Agent", _ua.Ua);
+            Client.DefaultRequestHeaders.Add("X-Requested-With", "XMLHttpRequest");
+            Client.DefaultRequestHeaders.Add("Referer", "https://www.instagram.com");
+            HttpResponseMessage response = Client.GetAsync("https://www.instagram.com").Result;
+            this.Client.DefaultRequestHeaders.Add("X-CSRFToken", Cookie.GetCSRFTOKEN());
+        }
 
-        public InstaAPI(string username, string password, string cookie, string claim)
-        { }
+        public Instagram(string username, string password, string cookie, string claim)
+        {
+            User = new(username.ToLower(), GetEncryptedPassword(password));
+            Challenge_URL = "challenge/";
+            _cookie = new(cookie);
+            _handler = new()
+            {
+                CookieContainer = _cookie.Cookies,
+                UseCookies = true,
+                UseDefaultCredentials = false
+            };
+            _handler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            _client = new(handler: _handler, disposeHandler: true)
+            {
+                BaseAddress = new Uri("https://instagram.com/"),
+                Timeout = TimeSpan.FromSeconds(180)
+            };
+            _ua = UAHelper.GetUa();
+            this.SetClaim(claim);
+            Client.DefaultRequestHeaders.Add("Accept-Language", "en-US");
+            Client.DefaultRequestHeaders.Add("X-Instagram-AJAX", "1");
+            Client.DefaultRequestHeaders.Add("User-Agent", _ua.Ua);
+            Client.DefaultRequestHeaders.Add("X-Requested-With", "XMLHttpRequest");
+            Client.DefaultRequestHeaders.Add("Referer", "https://www.instagram.com");
+            HttpResponseMessage response = Client.GetAsync("https://www.instagram.com").Result;
+            this.Client.DefaultRequestHeaders.Add("X-CSRFToken", Cookie.GetCSRFTOKEN());
+        }
 
-        public InstaAPI(string username, string password, string cookie, string claim, string url, string usernameProxy, string passwordProxy)
-        { }
+        public Instagram(string username, string password, string cookie, string claim, string url, string usernameProxy, string passwordProxy)
+        {
+            User = new(username.ToLower(), GetEncryptedPassword(password));
+            Challenge_URL = "challenge/";
+            _cookie = new(cookie);
+            _proxy = new()
+            {
+                Address = new Uri(url),
+                BypassProxyOnLocal = false,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(
+                    userName: usernameProxy,
+                    password: passwordProxy
+                    )
+            };
+            _handler = new()
+            {
+                CookieContainer = _cookie.Cookies,
+                UseCookies = true,
+                UseDefaultCredentials = false,
+                Proxy = _proxy
+            };
+            _handler.UseProxy = true;
+            _handler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            _client = new(handler: _handler, disposeHandler: true)
+            {
+                BaseAddress = new Uri("https://instagram.com/"),
+                Timeout = TimeSpan.FromSeconds(180)
+            };
+            _ua = UAHelper.GetUa();
+            this.SetClaim(claim);
+            Client.DefaultRequestHeaders.Add("Accept-Language", "en-US");
+            Client.DefaultRequestHeaders.Add("X-Instagram-AJAX", "1");
+            Client.DefaultRequestHeaders.Add("User-Agent", _ua.Ua);
+            Client.DefaultRequestHeaders.Add("X-Requested-With", "XMLHttpRequest");
+            Client.DefaultRequestHeaders.Add("Referer", "https://www.instagram.com");
+            HttpResponseMessage response = Client.GetAsync("https://www.instagram.com").Result;
+            this.Client.DefaultRequestHeaders.Add("X-CSRFToken", Cookie.GetCSRFTOKEN());
+        }
 
         //Public Methods
+
+        public string CookieString() => Cookie.ToString();
+
+        public string GetIgClaim() => this.GetClaim();
+
+        public string GetUserID() => _cookie.GetId();
 
         //Internal Methods
 
