@@ -54,6 +54,7 @@ namespace InstaAPI.Profile.Follow
                     HttpRequestMessage req = new(HttpMethod.Post, $"https://www.instagram.com/web/friendships/{id}/follow/");
                     HttpResponseMessage res = await insta.Client.SendAsync(req);
                     string resContent = await res.Content.ReadAsStringAsync();
+                    Console.WriteLine(resContent);
                     if (res.IsSuccessStatusCode)
                     {
                         if (resContent.IndexOf("\"challengeType\"") > -1)
@@ -81,6 +82,12 @@ namespace InstaAPI.Profile.Follow
                         {
                             ret.Status = 2;
                             ret.Response = "Failed to follow user ";
+                            return ret;
+                        }
+                        if (resContent.Contains("feedback_required"))
+                        {
+                            ret.Response = "Account temporary blocked";
+                            ret.Status = -6;
                             return ret;
                         }
                         dynamic json = JsonConvert.DeserializeObject(resContent);
