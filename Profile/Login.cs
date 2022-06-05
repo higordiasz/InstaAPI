@@ -28,7 +28,7 @@ namespace InstaAPI.Profile.Login
         /// -6 = Feedback
         /// -7 = disabled
         /// -8 = IP
-        /// 0 = Default
+        /// 0 = Default - Error if send it
         /// </returns>
         public static async Task<IReturn> Login(this Instagram insta, int attemp = 0)
         {

@@ -1,13 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "xN31UoWFUSLVDZTa5mgnzEvNyqRPze2vY/IblNG4T4Ie/3Mau/lLb4yg5s+IX5iVH82ZTsBJMgm8SQL4xxhgcA==",
+  "dgSpecHash": "06ToKWdwEgxXFlQMsQiiHArQfM7CYhup2PBykgo91RZrfzg7tDo0VPDwcpB1VGCDD0Xxi9/TfxUoRPK8te9SgQ==",
   "success": true,
   "projectFilePath": "C:\\1.Programacao\\3.CSharp\\1.InstaAPI\\InstaAPI\\InstaAPI\\InstaAPI.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Dias\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
-    "C:\\Users\\Dias\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\5.0.17\\microsoft.netcore.app.runtime.win-x86.5.0.17.nupkg.sha512",
-    "C:\\Users\\Dias\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x86\\5.0.17\\microsoft.windowsdesktop.app.runtime.win-x86.5.0.17.nupkg.sha512",
-    "C:\\Users\\Dias\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\5.0.17\\microsoft.aspnetcore.app.runtime.win-x86.5.0.17.nupkg.sha512"
+    "C:\\Users\\Dias\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],
   "logs": []
 }
