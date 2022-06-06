@@ -9,7 +9,7 @@ namespace InstaAPI.Helpers.Preloads
     public static class Preloads
     {
         public static string _content = "";
-        public async static Task<bool> Preload(this Instagram insta)
+        public async static Task<bool> Preload(this Instagram insta, int attemps = 0)
         {
             bool ret = false;
             try
@@ -33,6 +33,11 @@ namespace InstaAPI.Helpers.Preloads
                 else
                     ret = false;
                 _content = await res.Content.ReadAsStringAsync();
+                if (attemps < 3 && ret == false)
+                {
+                    int i = attemps + 1;
+                    return await insta.Preload(i);
+                }
             }
             catch (Exception err)
             {

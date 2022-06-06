@@ -54,7 +54,6 @@ namespace InstaAPI.Profile.Follow
                     HttpRequestMessage req = new(HttpMethod.Post, $"https://www.instagram.com/web/friendships/{id}/follow/");
                     HttpResponseMessage res = await insta.Client.SendAsync(req);
                     string resContent = await res.Content.ReadAsStringAsync();
-                    Console.WriteLine(resContent);
                     if (res.IsSuccessStatusCode)
                     {
                         if (resContent.IndexOf("\"challengeType\"") > -1)
