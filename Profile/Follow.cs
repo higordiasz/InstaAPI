@@ -14,7 +14,7 @@ namespace InstaAPI.Profile.Follow
     public static class FollowClass
     {
         /// <summary>
-        /// Get User ID in Search Bar
+        /// Follow user by ID
         /// </summary>
         /// <param name="insta">Instagram instance</param>
         /// <param name="id">Id</param>
