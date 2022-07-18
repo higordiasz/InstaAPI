@@ -93,6 +93,7 @@ namespace InstaAPI.Profile.Login
                             }
                             return ret;
                         }
+                        Console.WriteLine(resContent);
                         ret.Status = -4;
                         ret.Response = "Unable to login";
                     }

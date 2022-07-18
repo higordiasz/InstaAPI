@@ -23,6 +23,7 @@ namespace InstaAPI.Header
         private static string Connection = "keep-alive";
 
         public static void SetAjax(this Instagram insta, string ajax) => InstagramAjax = ajax;
+        public static string GetAjax(this Instagram insta) => InstagramAjax;
         public static void SetClaim(this Instagram insta, string claim) => X_IG_WWW_CLAIM = claim;
         public static string GetClaim(this Instagram insta) => X_IG_WWW_CLAIM;
 
@@ -204,6 +205,28 @@ namespace InstaAPI.Header
             insta.HeaderSecFetchMode("navigate");
             insta.HeaderSecFetchDest("document");
             insta.HeaderAcceptLanguage();
+        }
+
+        public static void HeaderIProfileInfo(this Instagram insta)
+        {
+            if (String.IsNullOrEmpty(X_IG_WWW_CLAIM))
+                X_IG_WWW_CLAIM = "0";
+            insta.ClearHeader();
+            insta.HeaderSecChUa();
+            insta.HeaderSecChUaMobile();
+            insta.HeaderSecChUaPlatform();
+            insta.HeaderUserAgent();
+            insta.HeaderAccept("*/*");
+            insta.HeaderSecFetchSite("same-site");
+            insta.HeaderSecFetchMode("cors");
+            insta.HeaderSecFetchDest("empty");
+            insta.HeaderAcceptLanguage();
+            insta.HeaderOrigin();
+            insta.HeaderReferer("https://www.instagram.com/");
+            insta.HeaderAsbdId();
+            insta.HeaderCsrfToken();
+            insta.HeaderClaim();
+            insta.HeaderAppId();
         }
 
         public static void HeaderRelation(this Instagram insta)
