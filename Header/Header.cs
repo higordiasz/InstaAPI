@@ -48,22 +48,23 @@ namespace InstaAPI.Header
         public static void HeaderContentType(this Instagram insta, string type) => insta.Client.DefaultRequestHeaders.Add("Content-Type", type);
         public static void HeaderConnection(this Instagram insta) => insta.Client.DefaultRequestHeaders.Add("Connection", Connection);
         public static void HeaderHost(this Instagram insta) => insta.Client.DefaultRequestHeaders.Add("Host", Host);
+        public static void HeaderHost(this Instagram insta, string host) => insta.Client.DefaultRequestHeaders.Add("Host", host);
         public static void HeaderUserAgent(this Instagram insta) => insta.Client.DefaultRequestHeaders.Add("User-Agent", insta.Ua.Ua);
         public static void HeaderCacheControl(this Instagram insta) => insta.Client.DefaultRequestHeaders.Add("Cache-Control", CacheControl);
         public static void HeaderSecChUa(this Instagram insta)
         {
             if (insta.Ua.Sec_Ch_Ua != "")
-                insta.Client.DefaultRequestHeaders.Add("Sec-Fetch-Mode", insta.Ua.Sec_Ch_Ua);
+                insta.Client.DefaultRequestHeaders.Add("sec-ch-ua", insta.Ua.Sec_Ch_Ua);
         }
         public static void HeaderSecChUaMobile(this Instagram insta)
         {
             if (insta.Ua.Sec_Ch_Ua_Mobile != "")
-                insta.Client.DefaultRequestHeaders.Add("Sec-Fetch-Site", insta.Ua.Sec_Ch_Ua_Mobile);
+                insta.Client.DefaultRequestHeaders.Add("sec-ch-ua-mobile", insta.Ua.Sec_Ch_Ua_Mobile);
         }
         public static void HeaderSecChUaPlatform(this Instagram insta)
         {
             if (insta.Ua.Sec_Ch_Ua_Platform != "")
-                insta.Client.DefaultRequestHeaders.Add("Sec-Fetch-Dest", insta.Ua.Sec_Ch_Ua_Platform);
+                insta.Client.DefaultRequestHeaders.Add("sec-ch-ua-platform", insta.Ua.Sec_Ch_Ua_Platform);
         }
         public static void ClearHeader(this Instagram insta) => insta.Client.DefaultRequestHeaders.Clear();
 
@@ -207,26 +208,28 @@ namespace InstaAPI.Header
             insta.HeaderAcceptLanguage();
         }
 
-        public static void HeaderIProfileInfo(this Instagram insta)
+        public static void HeaderProfileInfo(this Instagram insta)
         {
             if (String.IsNullOrEmpty(X_IG_WWW_CLAIM))
                 X_IG_WWW_CLAIM = "0";
             insta.ClearHeader();
+            insta.HeaderHost("i.instagram.com");
+            insta.HeaderConnection();
             insta.HeaderSecChUa();
+            insta.HeaderClaim();
             insta.HeaderSecChUaMobile();
-            insta.HeaderSecChUaPlatform();
             insta.HeaderUserAgent();
             insta.HeaderAccept("*/*");
+            insta.HeaderAsbdId();
+            insta.HeaderCsrfToken();
+            insta.HeaderSecChUaPlatform();
+            insta.HeaderAppId();
+            insta.HeaderOrigin();
             insta.HeaderSecFetchSite("same-site");
             insta.HeaderSecFetchMode("cors");
             insta.HeaderSecFetchDest("empty");
-            insta.HeaderAcceptLanguage();
-            insta.HeaderOrigin();
             insta.HeaderReferer("https://www.instagram.com/");
-            insta.HeaderAsbdId();
-            insta.HeaderCsrfToken();
-            insta.HeaderClaim();
-            insta.HeaderAppId();
+            insta.HeaderAcceptLanguage();
         }
 
         public static void HeaderRelation(this Instagram insta)
