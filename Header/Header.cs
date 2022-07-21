@@ -66,9 +66,9 @@ namespace InstaAPI.Header
             if (insta.Ua.Sec_Ch_Ua_Platform != "")
                 insta.Client.DefaultRequestHeaders.Add("sec-ch-ua-platform", insta.Ua.Sec_Ch_Ua_Platform);
         }
+        public static void HeaderContentLenght(this Instagram insta, int lenght) => insta.Client.DefaultRequestHeaders.Add("Content-Length", lenght.ToString());
+        public static void HeaderContentType(this Instagram insta) => insta.Client.DefaultRequestHeaders.Add("Content-Type", "application/x-www-form-urlencoded");
         public static void ClearHeader(this Instagram insta) => insta.Client.DefaultRequestHeaders.Clear();
-
-
 
         public static void HeaderLogin(this Instagram insta)
         {
@@ -175,6 +175,33 @@ namespace InstaAPI.Header
             insta.HeaderRequested();
             insta.HeaderSecChUaMobile();
             insta.HeaderAjax();
+            insta.HeaderAccept("*/*");
+            insta.HeaderCsrfToken();
+            insta.HeaderUserAgent();
+            insta.HeaderAsbdId();
+            insta.HeaderSecChUaPlatform();
+            insta.HeaderOrigin();
+            insta.HeaderSecFetchSite("same-origin");
+            insta.HeaderSecFetchMode("cors");
+            insta.HeaderSecFetchDest("empty");
+            insta.HeaderReferer("https://www.instagram.com/");
+            insta.HeaderAcceptLanguage();
+        }
+
+        public static void HeaderComment(this Instagram insta)
+        {
+            if (String.IsNullOrEmpty(X_IG_WWW_CLAIM))
+                X_IG_WWW_CLAIM = "0";
+            insta.ClearHeader();
+            insta.HeaderHost();
+            insta.HeaderConnection();
+            insta.HeaderSecChUa();
+            insta.HeaderAppId();
+            insta.HeaderClaim();
+            insta.HeaderRequested();
+            insta.HeaderSecChUaMobile();
+            insta.HeaderAjax();
+            insta.HeaderContentType();
             insta.HeaderAccept("*/*");
             insta.HeaderCsrfToken();
             insta.HeaderUserAgent();
