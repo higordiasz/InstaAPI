@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "HzGSXIKeRjd+HBVAbW0i7Ilk1+zH76DKemGK6Q+hLc2KE44bgHiuYekXCffPKAnFVATKfIgQ3Ej2LaUYBG4OCw==",
+  "success": true,
+  "projectFilePath": "C:\\1.Programacao\\3.CSharp\\1.InstaAPI\\InstaAPI\\InstaAPI\\InstaAPI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Dias\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\Dias\\.nuget\\packages\\microsoft.netcore.app.runtime.linux-arm\\5.0.17\\microsoft.netcore.app.runtime.linux-arm.5.0.17.nupkg.sha512",
+    "C:\\Users\\Dias\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.linux-arm\\5.0.17\\microsoft.aspnetcore.app.runtime.linux-arm.5.0.17.nupkg.sha512"
+  ],
+  "logs": []
+}

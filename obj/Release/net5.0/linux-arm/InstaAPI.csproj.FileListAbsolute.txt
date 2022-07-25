@@ -1,0 +1,11 @@
+C:\1.Programacao\3.CSharp\1.InstaAPI\InstaAPI\InstaAPI\bin\Release\net5.0\linux-arm\InstaAPI.deps.json
+C:\1.Programacao\3.CSharp\1.InstaAPI\InstaAPI\InstaAPI\bin\Release\net5.0\linux-arm\InstaAPI.dll
+C:\1.Programacao\3.CSharp\1.InstaAPI\InstaAPI\InstaAPI\bin\Release\net5.0\linux-arm\ref\InstaAPI.dll
+C:\1.Programacao\3.CSharp\1.InstaAPI\InstaAPI\InstaAPI\bin\Release\net5.0\linux-arm\InstaAPI.pdb
+C:\1.Programacao\3.CSharp\1.InstaAPI\InstaAPI\InstaAPI\obj\Release\net5.0\linux-arm\InstaAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\1.Programacao\3.CSharp\1.InstaAPI\InstaAPI\InstaAPI\obj\Release\net5.0\linux-arm\InstaAPI.AssemblyInfoInputs.cache
+C:\1.Programacao\3.CSharp\1.InstaAPI\InstaAPI\InstaAPI\obj\Release\net5.0\linux-arm\InstaAPI.AssemblyInfo.cs
+C:\1.Programacao\3.CSharp\1.InstaAPI\InstaAPI\InstaAPI\obj\Release\net5.0\linux-arm\InstaAPI.csproj.CoreCompileInputs.cache
+C:\1.Programacao\3.CSharp\1.InstaAPI\InstaAPI\InstaAPI\obj\Release\net5.0\linux-arm\InstaAPI.dll
+C:\1.Programacao\3.CSharp\1.InstaAPI\InstaAPI\InstaAPI\obj\Release\net5.0\linux-arm\ref\InstaAPI.dll
+C:\1.Programacao\3.CSharp\1.InstaAPI\InstaAPI\InstaAPI\obj\Release\net5.0\linux-arm\InstaAPI.pdb

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>InstaAPI</id>
+    <version>1.0.0</version>
+    <authors>Dias</authors>
+    <projectUrl>https://github.com/higordiasz/InstaAPI/</projectUrl>
+    <description>Unofficial instagram web API</description>
+    <releaseNotes>Public Alpha release</releaseNotes>
+    <repository type="Github" url="https://github.com/higordiasz/InstaAPI/" />
+    <dependencies>
+      <group targetFramework="net5.0">
+        <dependency id="Newtonsoft.Json" version="13.0.1" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\1.Programacao\3.CSharp\1.InstaAPI\InstaAPI\InstaAPI\bin\Release\net5.0\win-x86\InstaAPI.dll" target="lib\net5.0\InstaAPI.dll" />
+  </files>
+</package>

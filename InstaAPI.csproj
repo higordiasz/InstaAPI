@@ -2,6 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <Authors>Dias</Authors>
+    <Company>ArkaBot</Company>
+    <Description>Unofficial instagram web API</Description>
+    <PackageProjectUrl>https://github.com/higordiasz/InstaAPI/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/higordiasz/InstaAPI/</RepositoryUrl>
+    <RepositoryType>Github</RepositoryType>
+    <PackageReleaseNotes>Public Alpha release</PackageReleaseNotes>
+    <NeutralLanguage>en</NeutralLanguage>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
