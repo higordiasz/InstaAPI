@@ -15,6 +15,8 @@ A reverse-engineered implementation of the [Instagram](https://instagram.com/) w
 
 The module is now available on nuget!
 
+``dotnet add package InstaAPI --version 1.0.0``
+
 ## Example usage
 
 ```c#
