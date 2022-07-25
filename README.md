@@ -9,7 +9,7 @@ A reverse-engineered implementation of the [Instagram](https://instagram.com/) w
 ## Quick Links
 
 * [GitHub](https://github.com/higordiasz/InstaAPI)
-* [Nuget]()
+* [Nuget](https://www.nuget.org/packages/InstaAPI/1.0.0)
 
 ## Installation
 
