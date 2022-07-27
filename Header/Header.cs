@@ -264,6 +264,33 @@ namespace InstaAPI.Header
             insta.HeaderAcceptLanguage();
         }
 
+        public static void HeaderInbox(this Instagram insta)
+        {
+            if (String.IsNullOrEmpty(X_IG_WWW_CLAIM))
+                X_IG_WWW_CLAIM = "0";
+            insta.ClearHeader();
+            insta.HeaderHost("i.instagram.com");
+            insta.HeaderConnection();
+            insta.HeaderContentLenght(0);
+            insta.HeaderSecChUa();
+            insta.HeaderAppId();
+            insta.HeaderClaim();
+            insta.HeaderSecChUaMobile();
+            insta.HeaderAjax();
+            insta.HeaderContentType("application/x-www-form-urlencoded");
+            insta.HeaderAccept("*/*");
+            insta.HeaderUserAgent();
+            insta.HeaderAsbdId();
+            insta.HeaderCsrfToken();
+            insta.HeaderSecChUaPlatform();
+            insta.HeaderOrigin();
+            insta.HeaderSecFetchSite("same-site");
+            insta.HeaderSecFetchMode("cors");
+            insta.HeaderSecFetchDest("empty");
+            insta.HeaderReferer("https://www.instagram.com/");
+            insta.HeaderAcceptLanguage();
+        }
+
         public static void HeaderProfile(this Instagram insta)
         {
             if (String.IsNullOrEmpty(X_IG_WWW_CLAIM))

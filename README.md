@@ -78,6 +78,8 @@ namespace InstaApiUsage
 | CommentMediaByMediaId | ✅ | Comment media |
 | LikeMediaByMediaId | ✅ | Like media |
 | StoriesFeedClass | ✅ | Get a list of stories |
+| GetMyInbox | ✅ | Get account inbox notifications |
+| SeeMyInbox | ✅ | See account inbox notifications |
 
 Something missing? Make an issue and let us know!
 

@@ -10,29 +10,26 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace InstaAPI.Profile.Stories
+namespace InstaAPI.Inbox
 {
-    public static class StoriesClass
+    public static class Inbox
     {
         /// <summary>
-        /// See stories by ID
+        /// Get account inbox notifications
         /// </summary>
         /// <param name="insta">Instance of instagram</param>
-        /// <param name="storieId">Stories ID</param>
-        /// <param name="ownerId">User ID</param>
-        /// <param name="takenAt">Timespan of takenat</param>
         /// <returns>
-        /// 2 = Failed to see storie
+        /// 2 = Failed to get inbox
         /// 1 = Success
         /// 0 = Default
         /// -1 = Error
-        /// -2 = Storie Not found
+        /// -2 = Inbox Not found
         /// -3 = Account disconnected
         /// -4 = 
         /// -5 = Challenge
         /// -6 = Feedback
         /// </returns>
-        public static async Task<IReturn> SeeStorie(this Instagram insta, string storieId, string ownerId, string takenAt, int attemps = 0)
+        public static async Task<IReturn> GetMyInbox(this Instagram insta, int attemps = 0)
         {
             IReturn ret = new(0, "Default");
             try
@@ -51,17 +48,8 @@ namespace InstaAPI.Profile.Stories
                     {
                         insta.SetAjax(WebHelperClass.GetAjax(content));
                     }
-                    insta.HeaderStories();
-                    Dictionary<string, string> sender = new()
-                    {
-                        { "reelMediaId", storieId },
-                        { "reelMediaOwnerId", ownerId },
-                        { "reelId", ownerId },
-                        { "reelMediaTakenAt", takenAt },
-                        { "viewSeenAt", takenAt }
-                    };
-                    insta.HeaderContentLenght(68 + storieId.Length + ownerId.Length + ownerId.Length + takenAt.Length + takenAt.Length);
-                    HttpRequestMessage req = new(HttpMethod.Post, $"https://i.instagram.com/api/v1/stories/reel/seen") { Content = new FormUrlEncodedContent(sender) };
+                    insta.HeaderInbox();
+                    HttpRequestMessage req = new(HttpMethod.Post, $"https://i.instagram.com/api/v1/news/inbox/");
                     HttpResponseMessage res = await insta.Client.SendAsync(req);
                     string resContent = await res.Content.ReadAsStringAsync();
                     if (res.IsSuccessStatusCode)
@@ -84,7 +72,7 @@ namespace InstaAPI.Profile.Stories
                         if (!resContent.Contains("\"status\":\"ok\""))
                         {
                             ret.Status = -1;
-                            ret.Response = "Failed to see stories";
+                            ret.Response = "Failed get inbox notifications";
                             return ret;
                         }
                         if (resContent.Contains("feedback_required"))
@@ -111,12 +99,12 @@ namespace InstaAPI.Profile.Stories
                         {
                             await Task.Delay(1246);
                             int i = attemps + 1;
-                            return await insta.SeeStorie(storieId, ownerId, takenAt, i);
+                            return await insta.GetMyInbox(i);
                         }
                         string title = WebHelperClass.GetTitle(resContent);
                         if (title.IndexOf("Instagram") > -1)
                         {
-                            ret.Response = "Media not Found";
+                            ret.Response = "Inbox not found";
                             ret.Status = 2;
                             return ret;
                         }
@@ -132,7 +120,7 @@ namespace InstaAPI.Profile.Stories
                             {
                                 await Task.Delay(1246);
                                 int i = attemps + 1;
-                                return await insta.SeeStorie(storieId, ownerId, takenAt, i);
+                                return await insta.GetMyInbox(i);
                             }
                             else
                             {
@@ -154,7 +142,7 @@ namespace InstaAPI.Profile.Stories
                                     }
                                     else
                                     {
-                                        ret.Response = "Stories not found";
+                                        ret.Response = "Inbox not found";
                                         ret.Status = 2;
                                         return ret;
                                     }
@@ -172,7 +160,7 @@ namespace InstaAPI.Profile.Stories
             catch (Exception err)
             {
                 ret.Err = err;
-                insta.ErrWrite(err, "SeeStorie");
+                insta.ErrWrite(err, "GetMyInbox");
                 ret.Status = -1;
                 ret.Response = "An unexpected error has occurred";
             }
@@ -180,22 +168,21 @@ namespace InstaAPI.Profile.Stories
         }
 
         /// <summary>
-        /// Like stories by ID
+        /// See account inbox notifications
         /// </summary>
         /// <param name="insta">Instance of instagram</param>
-        /// <param name="storieId">Stories ID</param>
         /// <returns>
-        /// 2 = Failed to see storie
+        /// 2 = Failed to see inbox
         /// 1 = Success
         /// 0 = Default
         /// -1 = Error
-        /// -2 = Storie Not found
+        /// -2 = Inbox Not found
         /// -3 = Account disconnected
         /// -4 = 
         /// -5 = Challenge
         /// -6 = Feedback
         /// </returns>
-        public static async Task<IReturn> SendStoriesLike(this Instagram insta, string storieId, int attemps = 0)
+        public static async Task<IReturn> SeeMyInbox(this Instagram insta, int attemps = 0)
         {
             IReturn ret = new(0, "Default");
             try
@@ -214,13 +201,8 @@ namespace InstaAPI.Profile.Stories
                     {
                         insta.SetAjax(WebHelperClass.GetAjax(content));
                     }
-                    insta.HeaderStories();
-                    Dictionary<string, string> sender = new()
-                    {
-                        { "media_id", storieId }
-                    };
-                    insta.HeaderContentLenght(9 + storieId.Length);
-                    HttpRequestMessage req = new(HttpMethod.Post, $"https://i.instagram.com/api/v1/story_interactions/send_story_like") { Content = new FormUrlEncodedContent(sender) };
+                    insta.HeaderInbox();
+                    HttpRequestMessage req = new(HttpMethod.Post, $"https://i.instagram.com/api/v1/news/inbox_seen/");
                     HttpResponseMessage res = await insta.Client.SendAsync(req);
                     string resContent = await res.Content.ReadAsStringAsync();
                     if (res.IsSuccessStatusCode)
@@ -240,20 +222,12 @@ namespace InstaAPI.Profile.Stories
                             ret.Json = null;
                             return ret;
                         }
-                        if (!resContent.Contains("\"status\":\"ok\""))
-                        {
-                            ret.Status = -1;
-                            ret.Response = "Failed to like stories";
-                            return ret;
-                        }
                         if (resContent.Contains("feedback_required"))
                         {
                             ret.Response = "Account temporary blocked";
                             ret.Status = -6;
                             return ret;
                         }
-                        dynamic json = JsonConvert.DeserializeObject(resContent);
-                        ret.Json = json;
                         ret.Response = "Success";
                         ret.Status = 1;
                         return ret;
@@ -270,12 +244,12 @@ namespace InstaAPI.Profile.Stories
                         {
                             await Task.Delay(1246);
                             int i = attemps + 1;
-                            return await insta.SendStoriesLike(storieId, i);
+                            return await insta.SeeMyInbox(i);
                         }
                         string title = WebHelperClass.GetTitle(resContent);
                         if (title.IndexOf("Instagram") > -1)
                         {
-                            ret.Response = "Media not Found";
+                            ret.Response = "Inbox not found";
                             ret.Status = 2;
                             return ret;
                         }
@@ -291,7 +265,7 @@ namespace InstaAPI.Profile.Stories
                             {
                                 await Task.Delay(1246);
                                 int i = attemps + 1;
-                                return await insta.SendStoriesLike(storieId, i);
+                                return await insta.SeeMyInbox(i);
                             }
                             else
                             {
@@ -313,7 +287,7 @@ namespace InstaAPI.Profile.Stories
                                     }
                                     else
                                     {
-                                        ret.Response = "Stories not found";
+                                        ret.Response = "Inbox not found";
                                         ret.Status = 2;
                                         return ret;
                                     }
@@ -331,12 +305,11 @@ namespace InstaAPI.Profile.Stories
             catch (Exception err)
             {
                 ret.Err = err;
-                insta.ErrWrite(err, "SendStoriesLike");
+                insta.ErrWrite(err, "SeeMyInbox");
                 ret.Status = -1;
                 ret.Response = "An unexpected error has occurred";
             }
             return ret;
         }
-   
     }
 }
