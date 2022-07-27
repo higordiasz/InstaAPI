@@ -77,6 +77,7 @@ namespace InstaApiUsage
 | SendStoriesLike | ✅ | Like stories witch storiesId |
 | CommentMediaByMediaId | ✅ | Comment media |
 | LikeMediaByMediaId | ✅ | Like media |
+| StoriesFeedClass | ✅ | Get a list of stories |
 
 Something missing? Make an issue and let us know!
 
