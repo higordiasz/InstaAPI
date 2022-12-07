@@ -4,9 +4,13 @@
     <id>InstaAPI</id>
     <version>1.1.0</version>
     <authors>Dias</authors>
+    <license type="file">LICENSE</license>
+    <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
     <projectUrl>https://github.com/higordiasz/InstaAPI/</projectUrl>
     <description>Unofficial instagram web API</description>
     <releaseNotes>Public Alpha release</releaseNotes>
+    <copyright>Dias</copyright>
+    <tags>Instagram, API, Web</tags>
     <repository type="Github" url="https://github.com/higordiasz/InstaAPI/" />
     <dependencies>
       <group targetFramework="net5.0">
@@ -15,6 +19,7 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="C:\1.Programacao\3.CSharp\1.InstaAPI\InstaAPI\InstaAPI\bin\Release\net5.0\win-x86\InstaAPI.dll" target="lib\net5.0\InstaAPI.dll" />
+    <file src="C:\1.Programacao\3.CSharp\1.InstaAPI\InstaAPI\InstaAPI\bin\Release\net5.0\linux-arm\InstaAPI.dll" target="lib\net5.0\InstaAPI.dll" />
+    <file src="C:\1.Programacao\3.CSharp\1.InstaAPI\InstaAPI\InstaAPI\LICENSE" target="LICENSE" />
   </files>
 </package>

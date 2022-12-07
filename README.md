@@ -80,6 +80,10 @@ namespace InstaApiUsage
 | StoriesFeedClass | ✅ | Get a list of stories |
 | GetMyInbox | ✅ | Get account inbox notifications |
 | SeeMyInbox | ✅ | See account inbox notifications |
+| CheckUsername | ❎ | Check username available |
+| CheckEmail | ❎ | Check email available |
+| UsernameSuggestion | ❎ | Get suggestion of username from instagram |
+| CreateAccount | ❎ | Create account |
 
 Something missing? Make an issue and let us know!
 

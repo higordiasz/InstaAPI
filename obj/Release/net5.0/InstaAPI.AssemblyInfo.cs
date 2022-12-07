@@ -13,6 +13,7 @@ using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("ArkaBot")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
+[assembly: System.Reflection.AssemblyCopyrightAttribute("Dias")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Unofficial instagram web API")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.1.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.0")]
