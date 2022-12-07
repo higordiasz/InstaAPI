@@ -8,6 +8,7 @@ A reverse-engineered implementation of the [Instagram](https://instagram.com/) w
 
 ## Quick Links
 
+* [Discord](https://discord.gg/sYeya7g)
 * [GitHub](https://github.com/higordiasz/InstaAPI)
 * [Nuget](https://www.nuget.org/packages/InstaAPI/1.0.0)
 
