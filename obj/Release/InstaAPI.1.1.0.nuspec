@@ -19,7 +19,7 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="C:\1.Programacao\3.CSharp\1.InstaAPI\InstaAPI\InstaAPI\bin\Release\net5.0\linux-arm\InstaAPI.dll" target="lib\net5.0\InstaAPI.dll" />
+    <file src="C:\1.Programacao\3.CSharp\1.InstaAPI\InstaAPI\InstaAPI\bin\Release\net5.0\InstaAPI.dll" target="lib\net5.0\InstaAPI.dll" />
     <file src="C:\1.Programacao\3.CSharp\1.InstaAPI\InstaAPI\InstaAPI\LICENSE" target="LICENSE" />
   </files>
 </package>

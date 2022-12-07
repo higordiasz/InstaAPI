@@ -360,5 +360,33 @@ namespace InstaAPI.Header
             insta.HeaderReferer("https://www.instagram.com/");
             insta.HeaderAcceptLanguage();
         }
+        
+        public static void HeaderCheck(this Instagram insta)
+        {
+            if (String.IsNullOrEmpty(X_IG_WWW_CLAIM))
+                X_IG_WWW_CLAIM = "0";
+            insta.ClearHeader();
+            insta.HeaderHost();
+            insta.HeaderConnection();
+            insta.HeaderSecChUa();
+            insta.HeaderAppId();
+            insta.HeaderClaim();
+            insta.HeaderSecChUaMobile();
+            insta.HeaderAjax();
+            insta.HeaderUserAgent();
+            insta.HeaderViewPortWidth("1600");
+            //insta.HeaderContentType();
+            insta.HeaderAccept("*/*");
+            insta.HeaderRequested();
+            insta.HeaderAsbdId();
+            insta.HeaderCsrfToken();
+            insta.HeaderSecChUaPlatform();
+            insta.HeaderSecFetchSite("same-origin");
+            insta.HeaderSecFetchMode("cors");
+            insta.HeaderSecFetchDest("empty");
+            insta.HeaderReferer("https://www.instagram.com/accounts/emailsignup/");
+            insta.HeaderAcceptLanguage();
+        }
+    
     }
 }
