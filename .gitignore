@@ -1,2 +1,59 @@
-/bin
-.pfx
+# Build directories
+bin/
+obj/
+
+# Visual Studio files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Auto-generated code
+*.g.cs
+*.generated.cs
+
+# NuGet packages and restore
+*.nupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Rider IDE
+.idea/
+*.sln.iml
+
+# VS Code settings
+.vscode/
+
+# Resharper
+_ReSharper*/
+*.DotSettings.user
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Logs
+*.log
+
+# OS files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Temporary files
+*.tmp
+~$*
+
+# Test results
+TestResults/
+*.trx
+*.coverage
+
+# Debug symbols
+*.pdb
+
+# Coverage output
+coverage/
+coverage.*
