@@ -8,15 +8,15 @@ A reverse-engineered implementation of the [Instagram](https://instagram.com/) w
 
 ## Quick Links
 
-* [Discord](https://discord.gg/sYeya7g)
-* [GitHub](https://github.com/higordiasz/InstaAPI)
-* [Nuget](https://www.nuget.org/packages/InstaAPI/1.0.0)
+- [Discord](https://discord.gg/sYeya7g)
+- [GitHub](https://github.com/higordiasz/InstaAPI)
+- [Nuget](https://www.nuget.org/packages/InstaAPI/1.0.0)
 
 ## Installation
 
 The module is now available on nuget!
 
-``dotnet add package InstaAPI --version 1.0.0``
+`dotnet add package InstaAPI --version 1.0.0`
 
 ## Example usage
 
@@ -64,29 +64,93 @@ namespace InstaApiUsage
 }
 ```
 
-## Supported features
+## Supported Features
 
-| Functions  | Status | Description |
-| ------------- | ------------- | ------------- |
-| Login | ✅  | Login to instagram account |
-| FollowUserById  | ✅  | Follow user by userId |
-| GetRelationById  | ✅  | Get relation of you account and target userId |
-| GetIdBySearchBar  | ✅  | Find user by search bar of Instagram |
-| GetGender  | ✅ | Get gender of account |
-| GetUserProfileFromUsername | ✅ | Get user profile information using Username |
-| SeeStorie  | ✅  | See stories witch storiesId |
-| SendStoriesLike | ✅ | Like stories witch storiesId |
-| CommentMediaByMediaId | ✅ | Comment media |
-| LikeMediaByMediaId | ✅ | Like media |
-| StoriesFeedClass | ✅ | Get a list of stories |
-| GetMyInbox | ✅ | Get account inbox notifications |
-| SeeMyInbox | ✅ | See account inbox notifications |
-| CheckUsername | ❎ | Check username available |
-| CheckEmail | ❎ | Check email available |
-| UsernameSuggestion | ❎ | Get suggestion of username from instagram |
-| CreateAccount | ❎ | Create account |
+### Authentication
 
-Something missing? Make an issue and let us know!
+| Function | Status | Description                 |
+| -------- | ------ | --------------------------- |
+| Login    | ❗✅   | Log in to Instagram account |
+
+### Users & Relationships
+
+| Function           | Status | Description                                             |
+| ------------------ | ------ | ------------------------------------------------------- |
+| FollowUserById     | ❗✅   | Follow a user by their userId                           |
+| GetRelationById    | ❗✅   | Get relationship status between your account and a user |
+| GetIdBySearchBar   | ❗✅   | Find a user via Instagram’s search bar                  |
+| CheckUsername      | ❗❎   | Check if a username is available                        |
+| CheckEmail         | ❗❎   | Check if an email is available                          |
+| UsernameSuggestion | ❗❎   | Get username suggestions from Instagram                 |
+| CreateAccount      | ❗❎   | Create a new Instagram account                          |
+
+### Media & Content
+
+| Function                   | Status | Description                            |
+| -------------------------- | ------ | -------------------------------------- |
+| GetUserProfileFromUsername | ❗✅   | Fetch profile info by username         |
+| GetGender                  | ❗✅   | Retrieve account gender (if available) |
+| LikeMediaByMediaId         | ❗✅   | Like a media item by its mediaId       |
+| CommentMediaByMediaId      | ❗✅   | Post a comment on a media item         |
+| SeeStorie                  | ❗✅   | View a story by its storyId            |
+| SendStoriesLike            | ❗✅   | Like a story by its storyId            |
+| StoriesFeedClass           | ❗✅   | Get a list of current stories          |
+
+### Direct Messages (DM)
+
+| Function   | Status | Description                      |
+| ---------- | ------ | -------------------------------- |
+| GetMyInbox | ❗✅   | Retrieve your inbox threads      |
+| SeeMyInbox | ❗✅   | Mark your inbox messages as seen |
+
+### Feed & Exploration
+
+| Function   | Status | Description                          |
+| ---------- | ------ | ------------------------------------ |
+| –– None –– | ––     | No current features in this category |
+
+---
+
+## 🚧 Planned Features
+
+We’ll implement these gradually:
+
+### Authentication & Accounts
+
+- `Logout()` – Log out of the current session
+- `RefreshSession()` – Refresh the session token without logging back in
+
+### Users & Relationships
+
+- `GetUserFollowers(userId, pagination)` – List a user’s followers
+- `GetUserFollowing(userId, pagination)` – List who a user is following
+- `BlockUser(userId)` / `UnblockUser(userId)`
+- `MuteUserStories(userId)` / `UnmuteUserStories(userId)`
+
+### Media & Content
+
+- `GetMediaByUser(userId, pagination)` – Retrieve a user’s media feed
+- `GetMediaDetails(mediaId)` – Get post details (caption, location, etc.)
+- `SaveMedia(mediaId)` / `UnsaveMedia(mediaId)`
+- `UploadPhoto(filePath, caption)` – Upload a photo with a caption
+- `UploadStory(filePath, caption)` – Upload a story with a caption
+
+### Direct Messages (DM)
+
+- `GetDirectThreads(pagination)` – List DM threads
+- `SendDirectMessage(threadId, text)` – Send a message in a thread
+
+### Feed & Exploration
+
+- `GetTimelineFeed(pagination)` – Your main feed
+- `GetExploreFeed(pagination)` – Explore feed
+- `SearchHashtag(tag)` / `GetHashtagMedia(tag, pagination)`
+
+### Stories & Highlights
+
+- `GetStoryHighlights(userId)` – List a user’s story highlights
+- `CreateHighlight(title, storyIds[])` – Create a new highlight
+- `AddStoriesToHighlight(highlightId, storyIds[])` – Add stories to a highlight
 
 ## Contributing
 
